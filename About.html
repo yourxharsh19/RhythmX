@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About RhythmX - Diploma Final Year Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="about-page">
+    <div class="app-container">
+        <nav class="glass-effect">
+            <a href="index.html" class="brand">
+                <img src="LOGO.jpg" alt="RhythmX Logo">
+                <span>RhythmX</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html" class="active">About</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <section class="song-list-section glass-effect about-content">
+                <h1>Project RhythmX</h1>
+                <p class="badge">Diploma Final Year Project - 2026</p>
+
+                <div class="content-grid">
+                    <div class="content-block">
+                        <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+                        <p>RhythmX is a premium, high-performance music streaming interface built entirely with modern
+                            web technologies. This project focuses on pushing the boundaries of <strong>Vanilla
+                                JavaScript</strong> and <strong>Modern CSS</strong> to deliver a "Spotify-level"
+                            experience without the overhead of heavy frameworks.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h2><i class="fas fa-layer-group"></i> Technology Stack</h2>
+                        <ul>
+                            <li><strong>Core:</strong> HTML5 (Semantic Structure), CSS3 (Modern Flex/Grid), Vanilla
+                                JavaScript (ES6+).</li>
+                            <li><strong>API:</strong> Integrated with <strong>iTunes Search API</strong> for global
+                                music access.</li>
+                            <li><strong>Iconography:</strong> Font Awesome 5 for consistent and scalable vector icons.
+                            </li>
+                            <li><strong>Typography:</strong> Google Fonts (Outfit) for a sleek, premium editorial feel.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h2><i class="fas fa-star"></i> Key Features</h2>
+                        <ul>
+                            <li><strong>Global Search:</strong> Real-time filtering of local tracks combined with
+                                asynchronous global music searching.</li>
+                            <li><strong>Premium Player:</strong> Branded purple UI with <strong>circular
+                                    pointers</strong> and dynamic gradient-filled progress bars.</li>
+                            <li><strong>Download & Share:</strong> Integrated file downloading (via Blobs) and native
+                                Social Sharing (Web Share API).</li>
+                            <li><strong>Responsive Design:</strong> Fully fluid glassmorphism layout optimized for all
+                                screen sizes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h2><i class="fas fa-code"></i> Technical Innovations</h2>
+                        <ul>
+                            <li><strong>Dynamic Sliders:</strong> Custom JavaScript-driven linear gradients to ensure
+                                high-visibility for circular pointers without clipping.</li>
+                            <li><strong>Performance Optimization:</strong> Implemented <strong>Debouncing</strong> on
+                                search to minimize API overhead and improve responsiveness.</li>
+                            <li><strong>Accessibility:</strong> Screen-reader friendly labels and keyboard shortcuts
+                                (Space for Play/Pause, Arrows for Seek).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-block center-text">
+                    <h2>Developed By</h2>
+                    <p class="big-text">Harshdeep Singh</p>
+                    <p>Contact: <a href="mailto:harshdeep.2k6@gmail.com" class="accent-link">harshdeep.2k6@gmail.com</a>
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <style>
+        .about-content {
+            padding: 3rem !important;
+        }
+
+        .about-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #ffffff, var(--primary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(124, 77, 255, 0.3);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .content-block {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .content-block:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .content-block h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .content-block p {
+            color: var(--text-dim);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .content-block ul {
+            color: var(--text-dim);
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .content-block li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .content-block li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .big-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-top: 1rem;
+        }
+
+        .accent-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .accent-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                padding: 1.5rem !important;
+            }
+
+            .about-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</body>
+
+</html>

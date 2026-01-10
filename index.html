@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RhythmX - Your Modern Music Player</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (CDN fallback) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="glass-effect">
+            <a href="index.html" class="brand">
+                <img src="LOGO.jpg" alt="RhythmX Logo">
+                <span>RhythmX</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-item active" data-view="home">Home</a></li>
+                <li><a href="#" class="nav-item" data-view="albums">Albums</a></li>
+                <li><a href="#" class="nav-item" data-view="library">Library</a></li>
+                <li><a href="About.html">About</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search songs..." aria-label="Search songs">
+                <button id="searchBtn" title="Search"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="profile-container">
+                <div class="profile-icon" id="profileIcon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-item" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                        <span>Toggle Theme</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="About.html"
+                            style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-info-circle"></i>
+                            <span>About RhythmX</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <!-- Home View -->
+            <section class="view-section active" id="homeView">
+                <div class="song-list-section glass-effect">
+                    <h1>Trending Today</h1>
+                    <div class="song-item-container" id="songItemContainer">
+                        <div class="loading-placeholder">Loading your music...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Albums View -->
+            <section class="view-section" id="albumsView">
+                <div class="albums-section glass-effect">
+                    <h1>Albums</h1>
+                    <div class="albums-grid" id="albumsGrid">
+                        <div class="loading-placeholder">Loading albums...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Library View -->
+            <section class="view-section" id="libraryView">
+                <div class="library-section glass-effect">
+                    <h1>Your Library</h1>
+                    <div class="library-tabs">
+                        <button class="tab-btn active" data-tab="playlists">Playlists</button>
+                        <button class="tab-btn" data-tab="albums">Albums</button>
+                        <button class="tab-btn" data-tab="liked">Liked Songs</button>
+                    </div>
+                    <div class="library-content">
+                        <!-- Playlists Tab -->
+                        <div class="tab-content active" id="playlistsTab">
+                            <div class="playlists-header">
+                                <button class="create-playlist-btn" id="createPlaylistBtn">
+                                    <i class="fas fa-plus"></i> Create Playlist
+                                </button>
+                            </div>
+                            <div class="playlists-grid" id="playlistsGrid"></div>
+                        </div>
+                        <!-- Albums Tab -->
+                        <div class="tab-content" id="albumsTab">
+                            <div class="albums-grid" id="libraryAlbumsGrid"></div>
+                        </div>
+                        <!-- Liked Songs Tab -->
+                        <div class="tab-content" id="likedTab">
+                            <div class="song-item-container" id="likedSongsContainer"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Playlist Creation Modal -->
+        <div class="modal" id="playlistModal">
+            <div class="modal-content glass-effect">
+                <h2>Create New Playlist</h2>
+                <input type="text" id="playlistNameInput" placeholder="Enter playlist name..." maxlength="50">
+                <div class="modal-actions">
+                    <button class="btn-secondary" id="cancelPlaylistBtn">Cancel</button>
+                    <button class="btn-primary" id="savePlaylistBtn">Create</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Player Controls (Bottom Bar) -->
+        <footer class="player-bar glass-effect">
+            <div class="progress-container">
+                <span id="currentTime">0:00</span>
+                <input type="range" id="myProgressBar" min="0" value="0" max="100" aria-label="Seek track">
+                <span id="duration">0:00</span>
+            </div>
+
+            <div class="player-content">
+                <!-- Current Song Info -->
+                <div class="now-playing">
+                    <img src="LOGO.jpg" alt="Selected song cover" id="masterSongCover" class="player-cover">
+                    <div class="visualizer" id="visualizer">
+                        <img src="playing.gif" alt="Music playing animation" id="gif">
+                    </div>
+                    <div class="song-details">
+                        <span id="masterSongName">Select a song</span>
+                        <span id="masterArtistName">RhythmX</span>
+                    </div>
+                </div>
+
+                <!-- Main Controls -->
+                <div class="main-controls">
+                    <button id="shuffle" title="Shuffle" aria-label="Shuffle songs">
+                        <i class="fas fa-random"></i>
+                    </button>
+                    <button id="previous" title="Previous" aria-label="Previous song">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button id="masterPlay" title="Play/Pause" aria-label="Play or pause" class="play-btn">
+                        <i class="far fa-play-circle fa-3x"></i>
+                    </button>
+                    <button id="next" title="Next" aria-label="Next song">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                    <button id="repeat" title="Repeat" aria-label="Repeat song">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                </div>
+
+                <!-- Volume -->
+                <div class="extra-controls">
+                    <button id="downloadCurrent" title="Download current song"><i class="fas fa-download"></i></button>
+                    <button id="shareCurrent" title="Share current song"><i class="fas fa-share-alt"></i></button>
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="100"
+                        aria-label="Volume">
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
